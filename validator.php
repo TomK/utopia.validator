@@ -27,8 +27,7 @@ class uValidator {
 		
 		/* STYLE */
 		$bodystyles = $templateDoc->getElementsByTagName('body')->item(0)->getElementsByTagName('style');
-		for ($i = 0; $i < count($bodystyles); $i++) {
-			// missing ALT tag
+		for ($i = 0; $i < count($bodystyles)-1; $i++) {
 			$head->appendChild($bodystyles->item(0));
 		}
 	}
