@@ -7,6 +7,8 @@
 uEvents::AddCallback('ProcessDomDocument','uValidator::ProcessDomDocument','',99999999);
 class uValidator {
 	static function ProcessDomDocument($event,$obj,$templateDoc) {
+		$head = $templateDoc->getElementsByTagName('head')->item(0);
+		
 		/* FORMS */
 		$forms = $templateDoc->getElementsByTagName('form');
 		foreach ($forms as $form) {
@@ -21,6 +23,13 @@ class uValidator {
 		foreach ($images as $img) {
 			// missing ALT tag
 			if (!$img->hasAttribute('alt')) $img->setAttribute('alt','');
+		}
+		
+		/* STYLE */
+		$bodystyles = $templateDoc->getElementsByTagName('body')->item(0)->getElementsByTagName('style');
+		for ($i = 0; $i < count($bodystyles); $i++) {
+			// missing ALT tag
+			$head->appendChild($bodystyles->item(0));
 		}
 	}
 }
