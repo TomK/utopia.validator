@@ -15,7 +15,7 @@ class uValidator {
 			// lowercase METHOD attribute
 			if ($form->hasAttribute('method')) $form->setAttribute('method',strtolower($form->getAttribute('method')));
 			// missing ACTION attribute
-			if (!$form->hasAttribute('action') || !$form->getAttribute('action')) $form->setAttribute('action',$_SERVER['REQUEST_URI']);
+			if ((!$form->hasAttribute('action') || !$form->getAttribute('action')) && !utopia::IsAjaxRequest()) $form->setAttribute('action',$_SERVER['REQUEST_URI']);
 		}
 		
 		/* IMAGES */
