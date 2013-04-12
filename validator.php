@@ -24,11 +24,5 @@ class uValidator {
 			// missing ALT tag
 			if (!$img->hasAttribute('alt')) $img->setAttribute('alt','');
 		}
-		
-		/* STYLE */
-		$bodystyles = $templateDoc->getElementsByTagName('body')->item(0)->getElementsByTagName('style');
-		for ($i = 0; $i < count($bodystyles)-1; $i++) {
-			$head->appendChild($bodystyles->item(0));
-		}
 	}
 }
